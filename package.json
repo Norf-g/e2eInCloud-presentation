@@ -2,7 +2,6 @@
   "name": "reveal.js",
   "version": "3.2.0",
   "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
   "subdomain": "revealjs",
   "main": "js/reveal.js",
   "scripts": {
@@ -10,13 +9,12 @@
     "start": "grunt serve"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
+    "name": "Ivan Nikolaev",
+    "email": "norf33rus@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "https://github.com/norf33rus/es6-presentation.git"
   },
   "engines": {
     "node": "~4.1.1"
