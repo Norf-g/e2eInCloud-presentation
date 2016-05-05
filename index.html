@@ -39,7 +39,7 @@
 			<div class="slides">
 				<section>
 					<h1>ES6</h1>
-					<h3>или история как я гладил кота</h3>
+					<h3>или, да сколько можно...</h3>
 					<p>
 						<small>Автор Иван Николаев</small>
 					</p>
@@ -76,15 +76,18 @@
                         <li>template strings</li>
                         <li>map, set</li>
                         <li>classes</li>
+                        <li>modules</li>
 						<li>spread operator and rest parameters</li>
 						<li>destructuring</li>
+						<li>promises</li>
+						<li>generators</li>
                     </ul>
 				</section>
 
 				<section>
 					<section id="fragments">
 						<h2>let, const</h2>
-							<pre><code>function varTest() {
+							<pre><code class="javascript">function varTest() {
   var x = 31;
   if (true) {
     var x = 71;  // та же переменная!
@@ -92,7 +95,6 @@
   }
   console.log(x);  // 71
 }
-
 function letTest() {
   let x = 31;
   if (true) {
@@ -109,7 +111,7 @@ function letTest() {
 						<div class="flex-container">
 							<div class="flex-column">
 								<p>ES5</p>
-								<pre><code>1.function () { return 1; }
+								<pre><code class="javascript hide-scroll">1.function () { return 1; }
 2.function (a, b) { return a * b; }
 3.//В обыных фунцкиях необходимо следить за контекстом			
 var self = this;
@@ -125,10 +127,10 @@ this.nums.forEach(function (v) {
 							</div>
 							<div class="flex-column">
 								<p>ES6</p>
-								<pre><code>1.() => 1
+								<pre><code class="javascript hide-scroll">1.() => 1
 2.(a, b) => a * b
-3.//Стрелочные функции захватывают значение this окружающего		
-  //контекста
+3.//Стрелочные функции захватывают значение this
+  //окружающего контекста
 this.nums.forEach((v) => {
     if (v % 5 === 0)
         this.fives.push(v)
@@ -142,14 +144,14 @@ this.nums.forEach((v) => {
 						<div class="flex-container">
 							<div class="flex-column">
 								<p>ES5</p>
-								<pre><code>console.log(					
+								<pre><code class="javascript">console.log(
 "Fifteen is " + (a + b) + 
 " and not " + (2 * a + b) + "."
 );	</code></pre>
 							</div>
 							<div class="flex-column">
 								<p>ES6</p>
-								<pre><code>console.log(						
+								<pre><code class="javascript">console.log(
 `Fifteen is ${a + b}
 and not ${2 * a + b}.`
 );	</code></pre>
@@ -179,56 +181,244 @@ and not ${2 * a + b}.`
 					
 					<section>
 						<h2>Classes</h2>
-						<p>Объявление класса</p>
-						<pre><code>//В отличии от функции при объявлении класса
-//не происходит подъем(hoisted) 			
+						<section>
+							<div class="padding-top-30">
+								<p class="font24">Объявление класса</p>
+								<pre><code class="javascript">//В отличии от функции при объявлении класса
+//не происходит подъем(hoisted)
 class Polygon {
   constructor(height, width) {
     this.height = height;
     this.width = width;
   }
-  get area() {
-    return this.calcArea();
-  }
-  //Статические методы вызываются без инстанцирования класса и 
-  //не могут быть вызваны у экземпляров класса. 
-  static distance(a, b) {
-     const dx = a.x - b.x;
-     const dy = a.y - b.y;
-
-     return Math.sqrt(dx*dx + dy*dy);
-   }
 }</code></pre>
+							</div>
+							<div class="fragment">
+								<p class="font24">Статические методы вызываются без инстанцирования класса и не могут быть вызваны у экземпляров класса.</p>
+								<pre><code>class Point {
+  constructor() {
+  }
+  static sum(a, b) {
+    return a + b;
+  }
+}
+console.log(Point.sum(2, 4));</code></pre>
+							</div>
+						</section>
+						<section>
+							<div>
+								<p class="font24">Наследование классов</p>
+							</div>
+							<pre><code>class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() { return '(' + this.x + ', ' + this.y + ')'; }
+}
+
+class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y);
+    this.color = color;
+  }
+  toString() { return super.toString() + ' in ' + this.color; }
+}</code></pre>
+						</section>
+
 					</section>
-					
+
+				<section>
+					<h2>Modules</h2>
 					<section>
-						<h2></h2>
-						
+						<div>
+							<p class="font24">Основные фичи модулей это функции export и import</p>
+						<pre><code>// calculator/lib/calc.js
+export function square(x) {
+  return x * x;
+}
+export const MY_CONSTANT = 123;</code></pre>
+						<pre><code>// calculator/main.js
+import { square } from 'lib/calc';</code></pre>
+							<div class="fragment">
+								<p class="font24">Также можно импортировать модуль как объект, значениями свойств которого будут экспортированные значения:</p>
+								<pre><code>import 'lib/calc' as c;</code></pre>
+							</div>
+						</div>
 					</section>
+					<section>
+						<p class="font24">Есди модуль экспортирует только одно значение (большой класс, например). В таком случае удобно
+							определить это значение как экспортируемое по умолчанию</p>
+						<pre><code>// calculator/lib/calc.js
+export default class {
+  constructor(shape) {
+    this.shape = shape;
+  }
+};</code></pre>
+						<div class="fragment">
+							<p class="font24">В таком случае при импорте модуля можно опускать фигурные скобки</p>
+							<pre><code>// calculator/main.js
+import Calc  from 'lib/calc';
+let c = new Calc(10);</code></pre>
+						</div>
+						<div class="fragment">
+							<p class="font24">Также можно переименовывать значения во время экспорта</p>
+							<pre><code>export { square as squ, MY_CONSTANT as SOME_CONSTANT };</code></pre>
+						</div>
+					</section>
+				</section>
 					
 					<section>
 						<h4>Spread operator and rest parameters</h4>
 						<section>
-							<p>Параметры по умолчанию позволяют задавать формальным параметрам функции значения по умолчанию, если для них не указано значение или передан undefined.</p>
-						<pre><code>function multiply(a, b = 1) {
-  return a*b;
+							<p class="font24">Параметры по умолчанию позволяют задавать формальным параметрам функции
+								значения по умолчанию, если для них не указано значение или передан undefined.</p>
+						<pre><code class="javascript">function multiply(a, b = 1) {
+  return a * b;
 }
 
 multiply(5); // 5</code></pre>
 						</section>
 						<section>
-							<p>Rest parameters</p>
-							<pre><code>function f (x, y, ...a) {
+							<p class="font24">Rest parameters</p>
+							<pre><code class="javascript">function f (x, y, ...a) {
     console.log(a); //["hello", true, 7]
     return (x + y) * a.length;
 }
-f(1, 2, "hello", true, 7);</code></pre>
+f(1, 2, "hello", true, 7); //6</code></pre>
+						</section>
+						<section>
+							<br></br>
+							<p class="font24">Использование spread operator'а</p>
+							<pre><code class="javascript">let parts = ['первый', 'второй'];
+let lyrics = ['третий', ...parts, 'четвертый'];
+
+// ['третий', 'первый', 'второй', 'четвертый']</code></pre>
+							<div class="fragment">
+								<p class="font24">Копирование массива</p>
+								<pre><code class="javascript">let arr = [1, 2, 3, 4, 5];
+let data = [...arr];
+console.log(data); // [1, 2, 3, 4, 5]</code></pre>
+							</div>
+							<div class="fragment">
+								<p class="font24">Из массива в значения</p>
+								<pre><code class="javascript">
+let obj = [1,3,4,7];
+let arr = [3, 7];
+console.log(_.without(obj, ...arr)); //[1, 4]
+								</code></pre>
+							</div>
+
 						</section>
 					</section>
-					
+
+				<section>
+					<h2>Destructuring(Разбор)</h2>
 					<section>
-						
+						<div>
+							<p class="font24">Разбор массивов</p>
+							<pre><code class="javascript">let array = ["one", "two", "three"];
+// без деструктурирования
+let one   = foo[0];
+let two   = foo[1];
+let three = foo[2];
+// с деструктурированием
+let [one, two, three] = array;</code></pre>
+						</div>
+						<div class="fragment">
+							<p class="font24">Разбор объектов</p>
+							<pre><code class="javascript">let object = {p: 42, q: true};
+let {p, q} = object;
+console.log(p); // 42
+console.log(q); // true
+// Объявление новых переменных
+let {p: foo, q: bar} = object;
+console.log(foo); // 42
+console.log(bar); // true</code></pre>
+						</div>
 					</section>
+					<section>
+						<div>
+							<p class="font24">Swap значений</p>
+							<pre><code class="javascript">let a = 1, b = 2;
+[b, a] = [a, b];
+console.log(a, b);
+// => 2 1</code></pre>
+						</div>
+						<div class="fragment">
+							<p class="font24">Разбор сложных структур</p>
+							<pre><code class="javascript">let {prop: x, prop2: [, y]} = {prop: 5, prop2: [10, 100]};
+console.log(x, y);// 5 100</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h4>Ох уж эти Promise'ы</h4>
+					<section>
+						<p>В двух словах <a href="https://promisesaplus.com/">Promise</a> — это объект, обладающий методами .then() and .catch()</p>
+						<div class="fragment">
+						<pre><code>var promise = new Promise(function(resolve, reject) {
+  // здесь вытворяй что угодно, если хочешь асинхронно, потом…
+  if (/* ..если всё закончилось успехом */) {
+    resolve("Работает!");
+  }
+  else {
+    reject(Error("Сломалось"));
+  }
+});</code></pre>
+						</div>
+						<div class="fragment">
+							<p class="font24">Так как методы Promise.prototype.then и Promise.prototype.catch сами
+								возвращают обещания, их можно вызывать цепочкой, создавая соединения.
+							</p>
+					<pre><code class="javascript">let promise = new Promise(function(resolve, reject) {
+  resolve(1);
+});
+promise.then(function(val) {
+ return val + 2;
+}).then(function(val) {
+  console.log(val); // 3
+});</code></pre>
+						</div>
+					</section>
+					<section>
+						<div>
+							<p class="font24">Обработка нескольких Promise'ов</p>
+					<pre><code class="javascript">let p1 = new Promise(...),
+p2 = new Promise(...)
+p3 = Promise.all([p1, p2]);
+p3.then(...).catch(...);</code></pre>
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+					<h4>Generators</h4>
+					<div class="fragment">
+						<p>Про них сегодня ничего не будет, так как я сам не понимаю как их использование
+							добавят радуги в мою жизнь.</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Подводим итоги:</h4>
+					<div class="fragment">
+						<p>Плюсы использования ES6</p>
+						<ul class="font24">
+							<li>Это модно и современно, всё больше литературы использует ES6 и к этому надо привыкать</li>
+							<li>Это удобно, необходимо написать меньше строк для получения аналогичного результата</li>
+						</ul>
+					</div>
+					<div class="fragment">
+						<p>Минусы использования ES6</p>
+						<ul class="font24">
+							<li>Не все фичи поддерживаются браузерами, поэтому приходится прибегать к помощи transpiler'ов</li>
+							<li>При конвертации ES6 в ES5 меняется код на выходе</li>
+						</ul>
+					</div>
+				</section>
 
 			</div>
 
