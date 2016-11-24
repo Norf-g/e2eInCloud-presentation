@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>ES6 in da house</title>
+		<title>E2E in cloud</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -38,195 +38,59 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>ES6</h1>
-					<h3>или, да сколько можно...</h3>
+					<h1>Автоматическое e2e тестирование в Облаке</h1>
+					<h3 style="margin-top: 1em"></h3>
 					<p>
-						<small>Автор: Иван Николаев</small>
+						<small style="margin-top: 4em">Автор: Иван Николаев</small>
 					</p>
 				</section>
 
 				<section>
-					<h4>Что, зачем, как готовить?</h4>
-                      <p>ES6 он же ES2015 ни что иное как спецификация языка JavaScript</p>
-                      <p>Означает то, что что-то поменяли, что-то подкрутили, что-то приварили в ES т.е. ECMAScript 
-                          <small>(European Computer Manufacturers Association)</small>
-                      </p>
-                      <p>
-                          На данный момент разные браузеры поддерживают не все возможности ES6.
-                          Узнать что работает, а что нет можно в таблице совместимости <a href="http://kangax.github.io/compat-table/es6/"  target="_blank">таблице совместимости.</a>
-                      </p>
-                      <p>
-                          Для того чтобы включить ES6 в жизнь крепостного пока необходимо использовать так называемые <b>transpilers</b>, например <a href="https://babeljs.io/" target="_blank">Babel</a>
-                      </p>
-				</section>
-
-				<section>
-					<h2>Transpilers (Babel.js)</h2>
-					<p>
-					   Занимается тем что переписывает код ES6 в код предыдущей спецификации ES5.
-					</p>
-				</section>
-				</section>
-
-				<section>
-                    <h2>Основные ништяки ES6</h2>
-                    <ul>       
-                        <li>let, const</li>
-                        <li>arrow function</li>
-                        <li>template strings</li>
-                        <li>map, set</li>
-                        <li>classes</li>
-                        <li>modules</li>
-						<li>spread operator and rest parameters</li>
-						<li>destructuring</li>
-						<li>promises</li>
-						<li>generators</li>
+					<h4>Почему же в облаке?</h4>
+                    <ul>
+                        <li class="fragment"><div>Быстрота выполнения</div><span class="font24">Тесты можно запустить параллельно</span></li>
+                        <li class="fragment"><div>Большой выбор окружений</div><span class="font24">Более сотен комбинаций браузеров/устройств/ОС</span></li>
+                        <li class="fragment">Легко конфигурить</li>
+                        <li class="fragment">Не надо настраивать ВМ</li>
                     </ul>
 				</section>
 
 				<section>
-					<section id="fragments">
-						<h2>let, const</h2>
-							<pre><code class="javascript">function varTest() {
-  var x = 31;
-  if (true) {
-    var x = 71;  // та же переменная!
-    console.log(x);  // 71
-  }
-  console.log(x);  // 71
-}
-function letTest() {
-  let x = 31;
-  if (true) {
-    let x = 71;  // другая переменная
-    console.log(x);  // 71
-  }
-  console.log(x);  // 31
-}</code></pre>	
-					</section>
+                    <h2>Что мы хотим от e2e</h2>
+                    <ul>
+                        <li class="fragment">Всё что перечислено выше?</li>
+                        <li class="fragment">Иметь логи процесса</li>
+                        <li class="fragment">Репорты</li>
+                    </ul>
 				</section>
-				
+
 				<section>
-						<h2>Arrow function</h2>
-						<div class="flex-container">
-							<div class="flex-column">
-								<p>ES5</p>
-								<pre><code class="javascript hide-scroll">1.function () { return 1; }
-2.function (a, b) { return a * b; }
-3.//В обыных фунцкиях необходимо следить за контекстом			
-var self = this;
-this.nums.forEach(function (v) {
-    if (v % 5 === 0)
-        self.fives.push(v);
-});
+                    <h2>Наши кандидаты</h2>
+                    <ul>
+                        <li>BrowserStack</li>
+                        <li>TestingBot</li>
+                        <li>Sauce labs</li>
+                    </ul>
+				</section>
 
-this.nums.forEach(function (v) {
-    if (v % 5 === 0)
-        this.fives.push(v);
-}.bind(this));</code></pre>
-							</div>
-							<div class="flex-column">
-								<p>ES6</p>
-								<pre><code class="javascript hide-scroll">1.() => 1
-2.(a, b) => a * b
-3.//Стрелочные функции захватывают значение this
-  //окружающего контекста
-this.nums.forEach((v) => {
-    if (v % 5 === 0)
-        this.fives.push(v)
-})</code></pre>
-							</div>
-						</div>
-					</section>
-					
-					<section>
-						<h2>Template strings</h2>
-						<div class="flex-container">
-							<div class="flex-column">
-								<p>ES5</p>
-								<pre><code class="javascript">console.log(
-"Fifteen is " + (a + b) + 
-" and not " + (2 * a + b) + "."
-);	</code></pre>
-							</div>
-							<div class="flex-column">
-								<p>ES6</p>
-								<pre><code class="javascript">console.log(
-`Fifteen is ${a + b}
-and not ${2 * a + b}.`
-);	</code></pre>
-							</div>
-						</div>
-					</section>
-					
-					<section>
-						<h2>Map</h2>
-						<p>Объект Map является простым ассоциативным массивом.
-							Любые типы (как объекты, так и примитивы) могут быть использованы в качестве ключа или значения.
-						</p>
-						<b>Свойства экземпляров класса map:</b>
-						<p>Map.prototype.size</p>
-						<b>Методы экземпляров класса map:</b>
-						<p>Map.prototype.clear(); .delete(key); .entries(); .forEach(callbackFn[, thisArg]);
-							.get(key); .has(key); .keys(); .set(key, value); .values();
-						</p>
-					</section>
-					
-					<section>
-						<h2>Set</h2>
-						<p>Объекты Set представляют коллекции значений, по который вы можете выполнить обход в 
-							порядке вставки элементов. Значение элемента в Set может присутствовать только в одном
-								экземпляре, что обеспечивает его уникальность в рамках коллекции Set.</p>
-					</section>
-					
-					<section>
-						<h2>Classes</h2>
-						<section>
-							<div class="padding-top-30">
-								<p class="font24">Объявление класса</p>
-								<pre><code class="javascript">//В отличии от функции при объявлении класса
-//не происходит подъем(hoisted)
-class Polygon {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
-  }
-}</code></pre>
-							</div>
-							<div class="fragment">
-								<p class="font24">Статические методы вызываются без инстанцирования класса и не могут быть вызваны у экземпляров класса.</p>
-								<pre><code>class Point {
-  constructor() {
-  }
-  static sum(a, b) {
-    return a + b;
-  }
-}
-console.log(Point.sum(2, 4));</code></pre>
-							</div>
-						</section>
-						<section>
-							<div>
-								<p class="font24">Наследование классов</p>
-							</div>
-							<pre><code>class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-  toString() { return '(' + this.x + ', ' + this.y + ')'; }
-}
+                <section>
+                    <h2>Почему же Sauce Labs</h2>
 
-class ColorPoint extends Point {
-  constructor(x, y, color) {
-    super(x, y);
-    this.color = color;
-  }
-  toString() { return super.toString() + ' in ' + this.color; }
-}</code></pre>
-						</section>
+                </section>
 
-					</section>
+                <section>
+                    <h2></h2>
+                    <div class="flex-container">
+                        <div class="flex-column">
+                            <p>ES5</p>
+                            <pre><code class="javascript"></code></pre>
+                        </div>
+                        <div class="flex-column">
+                            <p>ES6</p>
+                            <pre><code class="javascript"></code></pre>
+                        </div>
+                    </div>
+                </section>
 
 				<section>
 					<h2>Modules</h2>
@@ -267,7 +131,7 @@ let c = new Calc(10);</code></pre>
 						</div>
 					</section>
 				</section>
-					
+
 					<section>
 						<h4>Spread operator and rest parameters</h4>
 						<section>
