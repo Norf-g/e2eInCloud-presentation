@@ -18,3 +18,10 @@
 .padding-top-30 {
     padding-top: 30px !important;
 }
+
+.fragment-replace > .fragment.visible:not(.current-fragment) {
+    display: none;
+    height:0px;
+    line-height: 0px;
+    font-size: 0px;
+}
