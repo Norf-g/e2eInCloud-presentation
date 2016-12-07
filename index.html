@@ -70,7 +70,7 @@
                         <li class="fragment">
 							<div>Быстрота выполнения</div>
 							<span class="font24">Тест-план на различных конфигурациях возможно запускать параллельно.</span>
-							<span class="font24 fragment"><b>Но есть лимит</b></span>
+							<span class="font24 fragment"><b>Но&nbsp;есть&nbsp;лимит</b></span>
 						</li>
                         <li class="fragment">
 							<div>Большой выбор окружений</div>
@@ -129,7 +129,7 @@
                 <section>
                     <h2>Почему же Sauce Labs?</h2>
 					<ul>
-						<li>Все фичи что и у предыдущих кандидатов</li>
+						<li>Присутствуют все фичи, что и у предыдущих кандидатов</li>
 						<li>Хорошая документация</li>
 						<li>Прекрасные репорты</li>
 					</ul>
@@ -139,8 +139,8 @@
                     <h2>Как можно приготовить?</h2>
 					<div class="flex-container flex-row" style="justify-content: space-between">
 						<div class="flex-container" style="width: 50%">
-							<ul>
-								<li class="fragment" data-fragment-index="0">Настраиваем protractor.config.js</li>
+							<ul class="font24">
+								<li class="fragment " data-fragment-index="0">Настраиваем protractor.config.js</li>
 								<li class="fragment" data-fragment-index="1">
 									Скачиваем <a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Connect">Sauce Connect</a>
 								</li>
@@ -149,14 +149,14 @@
 								<li class="fragment" data-fragment-index="4">Результат</li>
 							</ul>
 						</div>
-						<div class="fragment-replace flex-container" style="width: 50%">
+						<div class="fragment-replace " >
 							<div class="fragment" data-fragment-index="0">
 								<pre><code class="javascript" style="overflow: hidden">
 exports.config = {
 
  specs: ['test/**/*.spec.js'],
  sauceUser: 'YOUR_NAME',
- sauceKey: 'OUR_NAME:YOUR_KEY',
+ sauceKey: 'YOUR_KEY',
 
  multiCapabilities: [
     {
@@ -182,7 +182,7 @@ exports.config = {
                 </section>
 
 				<section>
-					<h2>Улучшаем рецепт</h2>
+					<h2>Добавляем приправы</h2>
 					<ul>
 						<li class="fragment" data-fragment-index="0">Добавляем в настройки конфигурации параметр
 							<a href="https://wiki.saucelabs.com/display/DOCS/Troubleshooting+Parallel+Tests">shardTestFiles: true</a>
@@ -247,6 +247,14 @@ afterAll((done) => {
 							</div>
 						</div>
 					</div>
+				</section>
+				<section>
+					<h2>Итого</h2>
+					<ul>
+						<li>Повышенная производительность и качество тестов</li>
+						<li>Легкость настройки</li>
+						<li>Наглядность результата тестирования</li>
+					</ul>
 				</section>
 			</div>
 
