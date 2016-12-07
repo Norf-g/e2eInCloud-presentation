@@ -39,66 +39,215 @@
 			<div class="slides">
 				<section>
 					<h1>Автоматическое e2e тестирование в Облаке</h1>
-					<h3 style="margin-top: 1em">или </h3>
 					<p>
 						<small style="margin-top: 4em">Автор: Иван Николаев</small>
 					</p>
 				</section>
 
 				<section>
-					<h4>Почему же в облаке?</h4>
+					<h2>Коротко о главном</h2>
+					<ul>
+						<li>Что мы хотим от e2e?</li>
+						<li>Почему же в облаке?</li>
+						<li>Наши кандидаты</li>
+						<li>Почему же Sauce Labs?</li>
+						<li>Как можно приготовить</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Что мы хотим от e2e?</h2>
+					<ul>
+						<li class="fragment">Высокая скорость выполнения тестов</li>
+						<li class="fragment">Проволить тесты на различных платформах</li>
+						<li class="fragment">Качественные репорты и логи о проделанной работе</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Почему же в облаке?</h2>
                     <ul>
-                        <li class="fragment"><div>Быстрота выполнения</div><span class="font24">Тесты можно запустить параллельно</span></li>
-                        <li class="fragment"><div>Большой выбор окружений</div><span class="font24">Более сотен комбинаций браузеров/устройств/ОС</span></li>
-                        <li class="fragment">Легко конфигурить</li>
+                        <li class="fragment">
+							<div>Быстрота выполнения</div>
+							<span class="font24">Тест-план на различных конфигурациях возможно запускать параллельно.</span>
+							<span class="font24 fragment"><b>Но есть лимит</b></span>
+						</li>
+                        <li class="fragment">
+							<div>Большой выбор окружений</div>
+							<span class="font24">Более сотен комбинаций браузеров/устройств/ОС</span>
+						</li>
+                        <li class="fragment">
+							<div>Легко конфигурить</div>
+							<span class="font24">Настраивается буквально парой строчек кода</span>
+						</li>
                         <li class="fragment">Не надо настраивать ВМ</li>
                     </ul>
 				</section>
 
 				<section>
-                    <h2>Что мы хотим от e2e</h2>
-                    <ul>
-                        <li class="fragment">Всё что перечислено выше?</li>
-                        <li class="fragment">Иметь логи процесса</li>
-                        <li class="fragment">Репорты</li>
-                    </ul>
+                    <h2>Наши кандидаты</h2>
+					<div class="flex-container flex-row" style="justify-content: space-between;">
+						<div>
+							<img class="clear-image" style="height: 70px" src="./images/testingBot-logo.svg" alt="TestingBot logo"/>
+							<h4><a href="https://testingbot.com">TestingBot</a></h4>
+						</div>
+						<div>
+							<img class="clear-image" style="height: 70px" src="./images/browserstack-logo.svg" alt="TestingBot logo"/>
+							<h4><a href="https://www.browserstack.com">BrowserStack</a></h4>
+						</div>
+						<div>
+							<img class="clear-image" style="height: 70px" src="./images/sauce-labs-logo.png" alt="TestingBot logo"/>
+							<h4><a href="https://saucelabs.com">Sauce labs</a></h4>
+						</div>
+					</div>
 				</section>
 
 				<section>
-                    <h2>Наши кандидаты</h2>
-                    <ul>
-                        <li>BrowserStack</li>
-                        <li>TestingBot</li>
-                        <li>Sauce labs</li>
-                    </ul>
+					<img class="clear-image" style="height: 140px" src="./images/testingBot-logo.svg" alt="TestingBot logo"/>
+					<ul>
+						<li>Более 700 вариантов конфигураций</li>
+						<li>Поддерживаются основные тестовые фрейморвки для (PHP, Ruby, Python, Java, .NET C#, NodeJS, Javascript)</li>
+						<li>Есть запись видио, скриншоны выполения тестов</li>
+						<li>Доступна интеграция с CI (Circle, Jenkins, Travis)</li>
+						<li>Есть api для статистики</li>
+						<li>Использует защищенный тунель для соединения</li>
+					</ul>
+				</section>
+
+				<section>
+					<img class="clear-image" style="height: 70px" src="./images/browserstack-logo.svg" alt="TestingBot logo"/>
+					<ul>
+						<li>Более 1000 вариантов конфигураций включая мобильные браузеры</li>
+						<li>Поддерживаются основные тестовые фрейморвки для (PHP, Ruby, Python, Java, .NET C#, NodeJS, Javascript)</li>
+						<li>Есть запись видио, скриншоны выполения тестов</li>
+						<li>Доступна интеграция с CI (Circle, Jenkins, Travis)</li>
+						<li>Есть api для работы с результатами</li>
+						<li>Использует защищенный тунель для соединения</li>
+					</ul>
 				</section>
 
                 <section>
-                    <h2>Почему же Sauce Labs</h2>
-
+                    <h2>Почему же Sauce Labs?</h2>
+					<ul>
+						<li>Все фичи что и у предыдущих кандидатов</li>
+						<li>Хорошая документация</li>
+						<li>Прекрасные репорты</li>
+					</ul>
                 </section>
 
                 <section>
-                    <h2>Как приготовить?</h2>
-					<ul>
-						<li class="fragment" data-fragment-index="0">Sauce Connect</li>
-						<li class="fragment" data-fragment-index="1">Config</li>
-						<li class="fragment" data-fragment-index="2">Легко конфигурить</li>
-						<li class="fragment" data-fragment-index="3">Не надо настраивать ВМ</li>
-					</ul>
-					<div class="fragment-replace">
-						<div class="fragment" data-fragment-index="0">Sauce Connect</div>
-						<div class="fragment" data-fragment-index="1">Config</div>
-						<div class="fragment" data-fragment-index="2">Легко конфигурить</div>
-						<div class="fragment" data-fragment-index="3">Не надо настраивать ВМ</div>
+                    <h2>Как можно приготовить?</h2>
+					<div class="flex-container flex-row" style="justify-content: space-between">
+						<div class="flex-container" style="width: 50%">
+							<ul>
+								<li class="fragment" data-fragment-index="0">Настраиваем protractor.config.js</li>
+								<li class="fragment" data-fragment-index="1">
+									Скачиваем <a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Connect">Sauce Connect</a>
+								</li>
+								<li class="fragment" data-fragment-index="2">Запускаем Sauce Connect</li>
+								<li class="fragment" data-fragment-index="3">Запускаем тесты</li>
+								<li class="fragment" data-fragment-index="4">Результат</li>
+							</ul>
+						</div>
+						<div class="fragment-replace flex-container" style="width: 50%">
+							<div class="fragment" data-fragment-index="0">
+								<pre><code class="javascript" style="overflow: hidden">
+exports.config = {
+
+ specs: ['test/**/*.spec.js'],
+ sauceUser: 'YOUR_NAME',
+ sauceKey: 'OUR_NAME:YOUR_KEY',
+
+ multiCapabilities: [
+    {
+        'browserName': 'chrome',
+        'version': '51.0',
+        'platform': 'Windows 10',
+        'name': 'Chrome v.51.0'
+    }
+ ]
+}
+							</code></pre>
+							</div>
+							<div class="fragment" data-fragment-index="1"></div>
+							<div class="fragment" data-fragment-index="2" style="padding: 20px">
+								<img src="images/console.jpg" alt="console"/>
+							</div>
+							<div class="fragment" data-fragment-index="3"></div>
+							<div class="fragment" data-fragment-index="4" style="padding: 20px">
+								<img src="images/simple-tests.jpg" alt="console"/>
+							</div>
+						</div>
 					</div>
                 </section>
 
 				<section>
-					<h2>А что с результатом?</h2>
-
+					<h2>Улучшаем рецепт</h2>
+					<ul>
+						<li class="fragment" data-fragment-index="0">Добавляем в настройки конфигурации параметр
+							<a href="https://wiki.saucelabs.com/display/DOCS/Troubleshooting+Parallel+Tests">shardTestFiles: true</a>
+						</li>
+						<li class="fragment" data-fragment-index="1">
+							<div>Добавляем библиотеку для работы с api</div>
+							<a href="https://www.npmjs.com/package/saucelabs">npm i saucelabs --save-dev</a>
+						</li>
+						<li class="fragment" data-fragment-index="2"><div>Добавляем тесты в "Билд".</div>
+							<pre><code class="javascript" style="overflow: hidden">//Protractor.conf.js
+params: {
+	souceLab: new SauceLabs({
+		username: 'YourName',
+		password: 'YourKey'
+	}),
+	build: 'The buildest'
+}
+//Any spec file
+afterAll((done) => {
+	browser.params.souceLab.updateJob(sessionId, {
+		build: browser.params.build
+	}, done);
+});
+							</code></pre>
+						</li>
+					</ul>
 				</section>
-
+				<section>
+					<h2>Как результат имеем</h2>
+					<div>
+						<img src="images/final-tests.jpg" alt="final-tests"/>
+					</div>
+				</section>
+				<section>
+					<h2>
+						<a href="https://wiki.saucelabs.com/display/DOCS/Using+Status+Badges+and+the+Browser+Matrix+Widget+to+Monitor+Test+Results">
+							Status Badges
+						</a>
+					</h2>
+					<div class="fragment-replace">
+						<div class="fragment" data-fragment-index="0">
+							Использование в html
+							<pre style="width: 100%; box-shadow: none; margin: 0;">
+								<code class="html"><a href="https://saucelabs.com/u/YOUR_SAUCE_USERNAME">
+	<img src="https://saucelabs.com/buildstatus/YOUR_SAUCE_USERNAME"/>
+</a>
+								</code>
+							</pre>
+							<div>
+								<img src="images/badge-html.jpg" alt=""/>
+							</div>
+						</div>
+						<div class="fragment" data-fragment-index="1">
+							Использование в README
+							<pre style="width: 100%;box-shadow: none; margin: 0;">
+								<code class="html">[![Sauce Test Status](https://saucelabs.com/browser-matrix/YOUR_SAUCE_USERNAME.svg)]
+(https://saucelabs.com/u/YOUR_SAUCE_USERNAME)
+								</code>
+							</pre>
+							<div>
+								<img src="images/badge-readme.jpg" alt=""/>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 
 		</div>

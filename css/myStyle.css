@@ -9,6 +9,12 @@
     flex-direction: column;
     width: 75%;
 }
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .hide-scroll {
     overflow: hidden !important;
 }
@@ -24,4 +30,14 @@
     height:0px;
     line-height: 0px;
     font-size: 0px;
+}
+
+.clear-image {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+section > h2 {
+    margin-bottom: 1em !important;
 }
