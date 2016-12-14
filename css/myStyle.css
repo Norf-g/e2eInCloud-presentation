@@ -21,6 +21,10 @@
 .font24 {
     font-size: 24px !important;
 }
+
+.font20 {
+    font-size: 20px !important;
+}
 .padding-top-30 {
     padding-top: 30px !important;
 }
@@ -40,4 +44,26 @@
 
 section > h2 {
     margin-bottom: 1em !important;
+}
+
+.reveal .fa {
+    font-family: 'FontAwesome';
+    font-style: normal;
+}
+
+.yes {
+    color: #17ff2e;
+}
+
+.no {
+    color: #aa2233;
+}
+
+.reveal table th {
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    vertical-align: middle;
+}
+.reveal table td {
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    vertical-align: middle;
 }

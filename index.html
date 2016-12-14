@@ -15,8 +15,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/myStyle.css">
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/myStyle.css">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -59,7 +60,7 @@
 					<h2>Что мы хотим от e2e?</h2>
 					<ul>
 						<li class="fragment">Высокая скорость выполнения тестов</li>
-						<li class="fragment">Проволить тесты на различных платформах</li>
+						<li class="fragment">Проводить тесты на различных платформах</li>
 						<li class="fragment">Качественные репорты и логи о проделанной работе</li>
 					</ul>
 				</section>
@@ -85,6 +86,13 @@
 				</section>
 
 				<section>
+					<h2 style="margin-bottom: 5px !important;">Вид изнутри</h2>
+					<div>
+						<img src="images/ui_farm_lab.png" alt=""/>
+					</div>
+				</section>
+
+				<section>
                     <h2>Наши кандидаты</h2>
 					<div class="flex-container flex-row" style="justify-content: space-between;">
 						<div>
@@ -103,50 +111,94 @@
 				</section>
 
 				<section>
-					<img class="clear-image" style="height: 140px" src="./images/testingBot-logo.svg" alt="TestingBot logo"/>
-					<ul>
-						<li>Более 700 вариантов конфигураций</li>
-						<li>Поддерживаются основные тестовые фрейморвки для (PHP, Ruby, Python, Java, .NET C#, NodeJS, Javascript)</li>
-						<li>Есть запись видио, скриншоны выполения тестов</li>
-						<li>Доступна интеграция с CI (Circle, Jenkins, Travis)</li>
-						<li>Есть api для статистики</li>
-						<li>Использует защищенный тунель для соединения</li>
-					</ul>
+					<table style="width: 100%">
+						<thead>
+							<tr>
+								<th></th>
+								<th>TestingBot</th>
+								<th>Browserstack</th>
+								<th>Sauce&nbsp;lab</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="font20">Наличие тестового аккаунта</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Большой выбор конфигураций</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Поддерживаются основные тестовые фреймворки</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Запись видео, скриншоты выполения тестов</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Доступна интеграция с CI (Circle, Jenkins, Travis)</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Использует защищенный туннель для соединения</td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Есть status-badge</td>
+								<td align="center"><i class="fa fa-ban no" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr>
+								<td class="font20">Есть status-martix</td>
+								<td align="center"><i class="fa fa-ban no" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-ban no" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+							<tr style="border-bottom: 3px solid darkred">
+								<td class="font20">Необходимость ручного обновления статуса выполнения теста</td>
+								<td align="center"><i class="fa fa-ban no" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-ban no" aria-hidden="true"></i></td>
+								<td align="center"><i class="fa fa-check yes" aria-hidden="true"></i></td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 
 				<section>
-					<img class="clear-image" style="height: 70px" src="./images/browserstack-logo.svg" alt="TestingBot logo"/>
-					<ul>
-						<li>Более 1000 вариантов конфигураций включая мобильные браузеры</li>
-						<li>Поддерживаются основные тестовые фрейморвки для (PHP, Ruby, Python, Java, .NET C#, NodeJS, Javascript)</li>
-						<li>Есть запись видио, скриншоны выполения тестов</li>
-						<li>Доступна интеграция с CI (Circle, Jenkins, Travis)</li>
-						<li>Есть api для работы с результатами</li>
-						<li>Использует защищенный тунель для соединения</li>
-					</ul>
+					<h2>Как это работает</h2>
+					<div>
+						<img src="images/sauce-schema.jpg" alt=""/>
+					</div>
 				</section>
-
-                <section>
-                    <h2>Почему же Sauce Labs?</h2>
-					<ul>
-						<li>Присутствуют все фичи, что и у предыдущих кандидатов</li>
-						<li>Хорошая документация</li>
-						<li>Прекрасные репорты</li>
-					</ul>
-                </section>
 
                 <section>
                     <h2>Как можно приготовить?</h2>
 					<div class="flex-container flex-row" style="justify-content: space-between">
 						<div class="flex-container" style="width: 50%">
 							<ul class="font24">
-								<li class="fragment " data-fragment-index="0">Настраиваем protractor.config.js</li>
+								<li class="fragment" data-fragment-index="0">Настраиваем protractor.config.js</li>
 								<li class="fragment" data-fragment-index="1">
 									Скачиваем <a href="https://wiki.saucelabs.com/display/DOCS/Setting+Up+Sauce+Connect">Sauce Connect</a>
 								</li>
 								<li class="fragment" data-fragment-index="2">Запускаем Sauce Connect</li>
 								<li class="fragment" data-fragment-index="3">Запускаем тесты</li>
-								<li class="fragment" data-fragment-index="4">Результат</li>
+								<div class="fragment" data-fragment-index="4"></div>
+								<li class="fragment" data-fragment-index="5">Результат</li>
 							</ul>
 						</div>
 						<div class="fragment-replace " >
@@ -166,15 +218,21 @@ exports.config = {
         'name': 'Chrome v.51.0'
     }
  ]
-}
-							</code></pre>
+}</code></pre>
 							</div>
-							<div class="fragment" data-fragment-index="1"></div>
+							<div class="fragment" data-fragment-index="1" style="padding: 20px">
+								<img src="images/sauce-connect.jpg" alt="sauce-connect"/>
+							</div>
 							<div class="fragment" data-fragment-index="2" style="padding: 20px">
 								<img src="images/console.jpg" alt="console"/>
 							</div>
-							<div class="fragment" data-fragment-index="3"></div>
+							<div class="fragment" data-fragment-index="3" style="padding: 20px">
+								<img src="images/kot-start.jpg" alt="console"/>
+							</div>
 							<div class="fragment" data-fragment-index="4" style="padding: 20px">
+								<img src="images/run-tests.jpg" alt="console"/>
+							</div>
+							<div class="fragment" data-fragment-index="5" style="padding: 20px">
 								<img src="images/simple-tests.jpg" alt="console"/>
 							</div>
 						</div>
@@ -183,16 +241,17 @@ exports.config = {
 
 				<section>
 					<h2>Добавляем приправы</h2>
-					<ul>
+					<ul class="fragment-replace">
 						<li class="fragment" data-fragment-index="0">Добавляем в настройки конфигурации параметр
 							<a href="https://wiki.saucelabs.com/display/DOCS/Troubleshooting+Parallel+Tests">shardTestFiles: true</a>
 						</li>
-						<li class="fragment" data-fragment-index="1">
+						<li class="fragment" data-fragment-index="0">
 							<div>Добавляем библиотеку для работы с api</div>
 							<a href="https://www.npmjs.com/package/saucelabs">npm i saucelabs --save-dev</a>
 						</li>
-						<li class="fragment" data-fragment-index="2"><div>Добавляем тесты в "Билд".</div>
+						<li class="fragment" data-fragment-index="1"><div>Добавляем аннотацию к тестам:</div>
 							<pre><code class="javascript" style="overflow: hidden">//Protractor.conf.js
+const SauceLabs = require('saucelabs');
 params: {
 	souceLab: new SauceLabs({
 		username: 'YourName',
@@ -205,8 +264,7 @@ afterAll((done) => {
 	browser.params.souceLab.updateJob(sessionId, {
 		build: browser.params.build
 	}, done);
-});
-							</code></pre>
+});</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -216,8 +274,8 @@ afterAll((done) => {
 						<img src="images/final-tests.jpg" alt="final-tests"/>
 					</div>
 				</section>
-				<section>
-					<h2>
+				<section style="padding-top: 0px;">
+					<h2 style="margin-bottom: 0 !important;">
 						<a href="https://wiki.saucelabs.com/display/DOCS/Using+Status+Badges+and+the+Browser+Matrix+Widget+to+Monitor+Test+Results">
 							Status Badges
 						</a>
@@ -232,7 +290,7 @@ afterAll((done) => {
 								</code>
 							</pre>
 							<div>
-								<img src="images/badge-html.jpg" alt=""/>
+								<img src="images/badge-html.jpg" style="margin: 0 !important;" alt=""/>
 							</div>
 						</div>
 						<div class="fragment" data-fragment-index="1">
@@ -243,7 +301,7 @@ afterAll((done) => {
 								</code>
 							</pre>
 							<div>
-								<img src="images/badge-readme.jpg" alt=""/>
+								<img src="images/badge-readme.jpg" style="margin: 0 !important;" alt=""/>
 							</div>
 						</div>
 					</div>
